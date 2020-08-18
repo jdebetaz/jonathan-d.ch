@@ -1,0 +1,15 @@
+.action {
+  display: inline-block;
+  border: 1px solid transparent;
+  background-color: var(--accent-color);
+  border-radius: space(4);
+  padding: space(1) space(2);
+  color: #ffffff;
+  transition: all .3s;
+
+  &:hover, &.active {
+    background-color: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+  }
+}

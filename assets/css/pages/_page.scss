@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+// Page alternant des blocks de couleurs
+// ==========================================================================
+.sections > * {
+  @extend %container;
+  padding-top: space(8);
+  padding-bottom: space(8);
+  
+  &:nth-child(even) {
+    background: var(--background-light);
+  }
+}
+
+// En tête avec une vague
+// ==========================================================================
+.hero-header {
+  @extend %container;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: space(3);
+}
+.hero-header__body {
+  @extend %hero-text;
+  padding-bottom: 20px;
+  font-size: 1.2rem!important;
+}
+.hero-header__title {
+  @extend %hero-title;
+}
+.hero-header__image {
+  display: none;
+  position: relative;
+}
+.hero-header__image img {
+  position: relative;
+  z-index: 2;
+}
+@include up(550) {
+  .hero-header {
+    grid-template-columns: 1fr 200px;
+  }
+  .hero-header__image {
+    display: block;
+    text-align: center;
+    align-self: center;
+    padding: 0 25px;
+  }
+}
+@include up(1000) {
+  .hero-header {
+    grid-template-columns: 1fr 400px;
+  }
+  .hero-header__body {
+    padding-bottom: 120px;
+  }
+  .hero-header .heros {
+    --hero-height: 120px;
+    transform: scaleX(-1);
+  }
+  .hero-header__image {
+    display: block;
+  }
+  .hero-header__image::after {
+    content:'';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    border-radius: 50% / 15px;
+    background-color: var(--border-light);
+  }
+}

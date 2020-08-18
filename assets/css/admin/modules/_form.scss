@@ -1,0 +1,226 @@
+// Libraries
+// ==================
+@import "choices";
+
+// Label
+// ==================
+label {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: .85em;
+}
+
+// Champs texte
+// ==================
+.form-group input,
+.form-group textarea,
+.choices__inner,
+.form-group select,
+.form-group input[required],
+.form-group textarea[required],
+.choices__inner,
+.form-group select[required],
+%input {
+  border: 1px solid var(--border) !important;
+  background: var(--background);
+  border-radius: 3px;
+  color: var(--color);
+  padding: space(1.5) space(1);
+  display: block;
+  width: 100%;
+  outline: none;
+  min-height: 44px;
+}
+.form-group textarea {
+  min-height: 150px;
+}
+.form-group input.is-invalid {
+  border-color: #FB4635;
+}
+.form-group label {
+  display: block;
+  margin-bottom: space(1);
+}
+
+// Checkbox
+// ==================
+.form-checkboxes {
+  grid-column: 1 / -1;
+}
+.form-check {
+  cursor: pointer;
+  position: relative;
+}
+.form-check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.form-check label {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-check label::before {
+  content:'';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-top: -3px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  margin-right: space(1);
+}
+.form-check label::after {
+  transition: transform .2s;
+  content:'';
+  position: absolute;
+  top: calc(50% - 9px);
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  background: var(--contrast);
+  transform: scale(0);
+}
+.form-check input:checked + label::after {
+  transform: scale(1);
+}
+.form-check input::after {
+  content:'lol';
+}
+
+// Switch
+// ==================
+.form-switch {
+  position: relative;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    min-height: auto;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0 !important;
+  }
+}
+.switch {
+  width: 55px;
+  height: 26px;
+  display: inline-block;
+  background: var(--background);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(213, 222, 233, 0.2);
+  border-radius: 100px;
+  margin-right: space(1);
+  transition: background .3s;
+
+  &::before {
+    content:'';
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: var(--background-light);
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(213, 222, 233, 0.2);
+    border-radius: 100px;
+    transition: transform .3s
+  }
+}
+input:checked + label .switch {
+  background-color: var(--contrast);
+}
+input:checked + label .switch::before {
+  transform: translateX(31px);
+}
+
+// Attachment
+// ==================
+.form-attachment {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+// Validation
+// ==================
+.form-error {
+  color: #FB4635;
+  font-size: .8em;
+  margin-top: .5em;
+  line-height: 1.2;
+
+  * > * {
+    margin-top: .5em;
+  }
+}
+
+// Accessibilité
+// ==================
+.form-group input:focus,
+.form-check input:focus + label::before,
+select:focus,
+textarea:focus,
+form button:focus,
+input:focus + label .switch,
+%input-active {
+  border-color: var(--contrast);
+  box-shadow: 0px 0px 3px var(--contrast);
+}
+
+// Misc
+// ==================
+button:hover .icon-delete {
+  color: var(--red);
+}
+
+// InputTag
+// ==========================================================================
+.form-group .choices[data-type="text"] .choices__inner,
+.form-group .choices[data-type="select-multiple"] .choices__inner {
+  padding: 0 8px;
+  display: flex;
+  min-height: 45px;
+  align-items: center;
+  background: var(--background);
+}
+.form-group .choices__input {
+  width: auto;
+  border: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  min-height: 0px;
+  box-shadow: none!important;
+  &.choices__input--cloned {
+    width: 1ch;
+  }
+}
+.choices__list--multiple .choices__item,
+.choices__list--multiple .choices__item.is-highlighted {
+  border: none;
+  white-space: nowrap;
+  background: var(--contrast);
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: .9rem;
+}
+.choices__list--multiple.choices__list {
+  margin-right: space(1);
+  background: transparent!important;
+}
+.choices__list--multiple {
+  margin-right: space(1);
+}
+.form-group .choices {
+  margin-bottom: 0;
+}

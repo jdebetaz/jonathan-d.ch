@@ -1,0 +1,85 @@
+// Pagination classique
+// =============
+.pagination {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.pagination li[aria-disabled] {
+  display: none;
+}
+.pagination li a,
+.pagination li span {
+  margin: space(.5);
+  padding: space(.5) space(1);
+  min-width: 35px;
+  font-size: .9rem;
+}
+.pagination span {
+  border: 1px solid var(--accent-color);
+  background-color: transparent;
+  border-radius: 4px;
+  color: var(--accent-color);
+  transition: all .3s;
+}
+.pagination a {
+  @extend %card;
+  border: 1px solid transparent;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  color: #ffffff;
+  transition: all .3s;
+}
+.pagination a:hover {
+  background-color: transparent;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+// Variations
+// ==================
+.dashboard .pagination {
+  margin-top: 0;
+  justify-content: flex-end;
+  margin-bottom: 0;
+
+  li:last-child,
+  li:first-child {
+    display: none;
+  }
+}
+
+// Pagination suiv / prec
+// =============
+.pagination-nav {
+  display: flex;
+  text-transform: uppercase;
+}
+.pagination-nav a + a {
+  position: relative;
+  padding-left: 16px;
+}
+.pagination-nav a + a::before {
+  content:'';
+  position: absolute;
+  left: 8px;
+  top: calc(50% - 5px);
+  background: var(--color);
+  display: block;
+  width: 1px;
+  height: 10px;
+}
+.pagination-nav svg {
+  width: 12px;
+  height: 12px;
+}
+.pagination-nav a {
+  opacity: .4;
+}
+.pagination-nav a:hover {
+  opacity: .6;
+}
+.pagination-nav a[rel="prev"] svg {
+  transform: rotate(180deg);
+}

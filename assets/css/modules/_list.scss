@@ -1,0 +1,30 @@
+.list > * {
+  justify-content: start;
+  padding: space(1) 0;
+}
+
+.list > a:hover {
+  background: var(--background);
+}
+
+.list img {
+  width: space(3);
+  height: space(3);
+  margin-right: space(2);
+}
+
+.list .badge {
+  margin-left: space(2);
+}
+
+// Badge
+// ==================
+.badge {
+  background-color: var(--accent-color);
+  display: inline-block;
+  padding: .25em .6em;
+  border-radius: 10rem;
+  font-size: 75%;
+  line-height: 1;
+  color: #ffffff;
+}

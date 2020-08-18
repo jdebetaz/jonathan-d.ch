@@ -1,0 +1,238 @@
+.projects {
+  @extend %container;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: dense;
+  padding-top: space(8);
+  padding-bottom: space(8);
+  @include up(700) {
+    grid-gap: space(4);
+  }
+}
+
+//
+// ==================
+.project-hero {
+  @extend %hero-text;
+  grid-column: 1 / 3;
+  max-width: 500px;
+
+  @include down(700) {
+    margin-bottom: space(4);
+    grid-column: 1 / -1;
+  }
+
+  &.is-paginated {
+    margin-top: var(--card-padding);
+    grid-column: -3 / -1;
+    max-width: none;
+
+    @include up(850) {
+      text-align: right;
+    }
+  }
+
+  em {
+    display: block;
+    margin-top: -30px;
+    font-weight: 400;
+    font-size: 30px;
+  }
+}
+.project-hero > * + * {
+  margin-top: space(4);
+}
+.project-hero h2 {
+  @extend %hero-title;
+}
+
+// Projets
+// ==================
+.project {
+
+  .project-thumb, .project-title {
+    display: block;
+  }
+
+  .project-thumb{
+
+    img {
+      transition: all .3s;
+      border-radius: space(.5);
+    }
+  }
+
+  .project-technology {
+    font-size: .9rem;
+  }
+
+}
+
+.project {
+  position: relative;
+  width: 100%;
+  font-size: .9em;
+  display: flex;
+  flex-direction: column;
+
+  @include down(700) {
+    margin-bottom: space(4);
+    grid-column: 1 / -1;
+  }
+}
+.project a {
+  position: relative;
+  z-index: 3;
+}
+.project a:hover {
+  color: var(--accent-color)
+}
+.project > * {
+  margin-bottom: space(2);
+}
+.project > *:last-child {
+  margin-bottom: 0;
+}
+.project-title {
+  font-family: $font-alt;
+  margin: 0 0 .4em;
+  font-size: 1.1rem;
+  color: var(--title-color);
+  font-weight: bold;
+  transition: color .2s ease-in-out;
+}
+.project__icons {
+  display: flex;
+  align-items: center;
+}
+.project-technologies * + * {
+  margin-left: space(1);
+}
+.project__icon img {
+  width: space(3);
+  height: space(3);
+  display: block;
+}
+.project__icon {
+  display: inline-block;
+  width: space(3);
+  height: space(3);
+}
+.project .project__link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.project__footer {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  background: var(--card-footer);
+  margin: auto calc(var(--card-padding) * -1) calc(var(--card-padding) * -1)!important;
+  padding: 0 var(--card-padding);
+}
+.project__footer > * {
+  opacity: .65;
+}
+.project__footer > *:last-child {
+  margin-left: auto;
+}
+.project__footer svg {
+  vertical-align: middle;
+  transform: translateY(-2px);
+  width: 12px;
+  height: 12px;
+}
+
+// Page
+// ==================
+.project-sticky {
+  position: sticky;
+  top: space(8);
+}
+.project-page {
+
+}
+.requirements {
+  @extend %card;
+  padding: space(3);
+}
+.requirements__title {
+  @extend %card-title;
+  margin-bottom: space(2);
+}
+.requirements .list > * {
+  margin-left: space(-3);
+  margin-right: space(-3);
+  padding-left: space(3);
+  padding-right: space(3);
+}
+.project-actions {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: $font-alt;
+  font-weight: bold;
+}
+.project-actions * > * {
+  margin-left: space(1);
+}
+
+// En tête des tutoriels (avec player video)
+// =============
+.project-header {
+  --sidebar-width: 385px;
+  align-items: stretch;
+  margin-bottom: space(8);
+}
+.project-header__sidebar {
+  display: none;
+}
+
+@include up(700) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  .project-header {
+    display: grid;
+    grid-template-columns: 1fr auto var(--sidebar-width) 1fr;
+    grid-template-areas: "space player sidebar space2";
+  }
+  .project-header__sidebar {
+    position: relative;
+    display: block;
+
+    & > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: auto;
+    }
+  }
+  .project-header__player {
+    border-radius: 8px;
+    overflow: hidden;
+    grid-area: player;
+    width: calc(100vw - var(--sidebar-width) - 80px);
+    max-width: 150vh;
+  }
+  .project-header__sidebar {
+    grid-area: sidebar;
+    max-height: 100%;
+    overflow: auto;
+    margin-left: var(--container-padding);
+  }
+}
+
+@include up(900) {
+    .projects {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

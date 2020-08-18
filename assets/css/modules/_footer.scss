@@ -1,0 +1,7 @@
+.footer {
+  @extend %container;
+  padding-top: space(8);
+  padding-bottom: space(8);
+  text-align: center;
+  text-transform: uppercase;
+}

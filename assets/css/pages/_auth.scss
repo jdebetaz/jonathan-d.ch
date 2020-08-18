@@ -1,0 +1,32 @@
+// Pages d'authentification
+// ==================
+.auth-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - var(--container-padding) * 2);
+  max-width: 400px;
+}
+.auth-title {
+  @extend %hero-title;
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: space(4);
+}
+.auth-form a {
+  text-decoration: underline;
+  color: var(--accent-color);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.auth-form {
+  @extend %card;
+  padding: space(3);
+}
+.auth-form > * + * {
+  margin-top: space(3);
+}
+.auth-actions {
+  font-size: .9rem;
+}

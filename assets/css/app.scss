@@ -1,0 +1,79 @@
+:root {
+    --container-padding: 32px;
+    --container-width: calc(100vw - var(--container-padding) * 2);
+    --space: 8px;
+    --title-color: #ffffff;
+    --accent-color: #F44336;
+    --color-transparent: #{rgba(#121C42, 0)};
+    --color-btn: #EFFBEC;
+    --gap: 20px;
+    --border-light: #D5E3EC7F;
+    --space-section: 150px;
+    --card-padding: 16px;
+    --header-height: 137px;
+    --red: #FB4635;
+    --green: #41CF7C;
+    --yellow: #FEB32B;
+    --color-dark: #fff;
+    --color: #effbec;
+    --color-light: #effbec99;
+    --color-inversed: #121c42;
+    --contrast: #61a0f6;
+    --border: #454545;
+    --background: #111111;
+    --background-light: #222222;
+    --shadow: #0b0c1a;
+    --play: #1d1d3a;
+    --list-hover: #282a5a;
+    --card-footer: #{darken(#202248, 3)};
+}
+
+// Outils
+// ==================
+@import "tools/reset";
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/layout";
+@import "tools/typography";
+@import "tools/animations";
+
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: var(--accent-color);
+}
+
+body {
+  font-family: $font;
+  font-size: 16px;
+  color: var(--color);
+  line-height: 1.5;
+  background:  var(--background);
+  scroll-margin: 100px 0 0 0;
+}
+
+::selection {
+  background: var(--accent-color);
+  color: #FFF;
+}
+
+@import "admin/modules/btn";
+@import "modules/topbar";
+@import "modules/action";
+@import "modules/footer";
+@import "modules/hero";
+@import "modules/nav";
+@import "modules/card";
+@import "modules/pagination";
+@import "modules/formatted";
+@import "admin/modules/comments";
+@import "admin/modules/form";
+@import "modules/alert";
+@import "modules/list";
+
+@import "pages/page";
+@import "pages/projects";
+@import "pages/blog";
+@import "pages/home";
+@import "pages/env";
+@import "pages/auth";
+@import "pages/search";

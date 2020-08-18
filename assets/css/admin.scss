@@ -1,0 +1,108 @@
+:root {
+    --space: 8px;
+    --title-color: #ffffff;
+    --accent-color: #F44336;
+    --color-transparent: #{rgba(#121C42, 0)};
+    --color-btn: #EFFBEC;
+    --gap: 20px;
+    --border-light: #D5E3EC7F;
+    --space-section: 150px;
+    --card-padding: 16px;
+    --header-height: 137px;
+    --red: #FB4635;
+    --green: #41CF7C;
+    --yellow: #FEB32B;
+    --color-dark: #fff;
+    --color: #effbec;
+    --color-light: #effbec99;
+    --color-inversed: #121c42;
+    --contrast: #61a0f6;
+    --border: #454545;
+    --background: #111111;
+    --background-light: #222222;
+    --shadow: #0b0c1a;
+    --play: #1d1d3a;
+    --list-hover: #282a5a;
+    --card-footer: #{darken(#202248, 3)};
+}
+
+
+// Outils
+// ==================
+@import "tools/reset";
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/layout";
+@import "tools/typography";
+@import "tools/animations";
+
+// Generic
+// ==================
+body {
+  font-family: $font;
+  font-size: 16px;
+  color: var(--color);
+  line-height: 1.6;
+  background:  var(--background);
+  scroll-margin: 100px 0 0 0;
+}
+
+body.light {
+  background:  var(--background-light);
+  &::after {
+    display: none;
+  }
+}
+
+body::after {
+  content:'';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 580px;
+  height: 506px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+::selection {
+  background: var(--contrast);
+  color: #FFF;
+}
+
+// Modules
+// ==================
+@import "admin/modules/header";
+@import "admin/modules/card";
+@import "admin/modules/scrollbar";
+@import "admin/modules/btn";
+@import "admin/modules/pagination";
+@import "admin/modules/form";
+@import "admin/modules/alert";
+@import "admin/modules/formatted";
+@import "admin/modules/table";
+@import "admin/modules/modal";
+@import "admin/modules/list";
+@import "admin/modules/comments";
+@import "admin/modules/page";
+@import "admin/modules/breadcrumb";
+@import "admin/modules/hero";
+@import "admin/modules/nav";
+@import "admin/modules/highlight";
+@import "admin/modules/attachments";
+@import "admin/modules/chapters";
+@import "admin/modules/sortable";
+
+// Pages
+// ==================
+@import "admin/pages/live";
+@import "admin/pages/chapters";
+@import "admin/pages/auth";
+@import "admin/pages/blog";
+@import "admin/pages/dashboard";
+@import "admin/pages/env";
+@import "admin/pages/formations";
+@import "admin/pages/home";
+@import "admin/pages/forum";
+// @import "pages/single";
